@@ -1,0 +1,12 @@
+version: "2"
+
+services:
+
+  pre_commit:
+    build: .
+    container_name: devtoolsdemo-pre_commit
+    image: devtoolsdemo
+    command: >
+      bash -c 'black /app && isort /app && pflake8'
+    volumes:
+      - ./:/app

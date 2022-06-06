@@ -1,0 +1,10 @@
+[
+{
+    "model": "todo.todo",
+    "pk": 1,
+    "fields": {
+        "status": 1,
+        "task": "Show features"
+    }
+}
+]

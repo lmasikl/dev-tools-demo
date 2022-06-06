@@ -1,0 +1,48 @@
+[tool.poetry]
+name = "dev-tools-demo"
+version = "0.1.0"
+description = ""
+authors = ["Maxim Krivodaev <maxim.krivodaev@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+isort = "^5.10.1"
+black = "^22.3.0"
+Django = "^4.0.5"
+django-environ = "^0.8.1"
+flake8 = "^4.0.1"
+pyproject-flake8 = "^0.0.1-alpha.4"
+
+[tool.poetry.dev-dependencies]
+
+[tool.black]
+line-length = 100
+
+[tool.isort]
+line_length = 100
+multi_line_output = 5
+include_trailing_comma = true
+use_parentheses = true
+lines_after_imports = 2
+lines_between_sections = 1
+group_by_package = true
+color_output = true
+known_todo = "todo"
+sections = ["FUTURE", "STDLIB", "THIRDPARTY", "FIRSTPARTY", "TODO", "LOCALFOLDER"]
+
+[tool.flake8]
+exclude = ".idea,.git,.tox,dist,doc,*lib/python*,*egg,build,.svn,demo,conf,*/settings/*.py,settings_*,env,venv"
+show-source = true
+max-line-length = 100
+application-import-names = "smarkets"
+max-cognitive-complexity = 15
+ignore = "FI1,I100,P101,W503"
+extend-ignore = ["E203"]
+per-file-ignores = """
+    */migrations/*.py: P103,E501,F401,I201,W292,C812,E302,E126,E800,CCR001,F541,P101,W391,E701,I101,C405,I100,I202,E303,W293,E722,B001,C813
+    */fixtures/*.py: E501"""
+
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
